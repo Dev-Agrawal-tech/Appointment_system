@@ -1,0 +1,268 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Services - SmartSchedule Pro</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script src="https://unpkg.com/lucide@latest"></script>
+    <link rel="stylesheet" href="css/style.css">
+</head>
+<body class="bg-gray-50 text-gray-800">
+    <nav class="fixed w-full z-50 glass-effect border-b border-gray-200">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex justify-between h-16 items-center">
+                <a href="index.html" class="flex items-center">
+                    <div class="gradient-bg p-2 rounded-lg mr-3">
+                        <i data-lucide="calendar-check" class="h-6 w-6 text-white"></i>
+                    </div>
+                    <span class="text-xl font-bold gradient-text">SmartSchedule</span>
+                </a>
+                
+                <div class="hidden md:flex space-x-8">
+                    <a href="index.html" class="nav-link text-gray-700 hover:text-indigo-600 font-medium">Home</a>
+                    <a href="services.html" class="nav-link active text-indigo-600 font-medium">Services</a>
+                    <a href="booking.html" class="nav-link text-gray-700 hover:text-indigo-600 font-medium">Book</a>
+                    <a href="dashboard.html" class="nav-link text-gray-700 hover:text-indigo-600 font-medium">Dashboard</a>
+                    <a href="features.html" class="nav-link text-gray-700 hover:text-indigo-600 font-medium">Features</a>
+                    <a href="contact.html" class="nav-link text-gray-700 hover:text-indigo-600 font-medium">Contact</a>
+                </div>
+
+                <div class="hidden md:flex items-center space-x-4">
+                    <a href="login.html" class="text-gray-700 hover:text-indigo-600 font-medium">Log In</a>
+                    <a href="login.html" class="gradient-bg text-white px-5 py-2 rounded-full font-medium">Get Started</a>
+                </div>
+
+                <button onclick="toggleMobileMenu()" class="md:hidden p-2 rounded-lg hover:bg-gray-100">
+                    <i data-lucide="menu" class="h-6 w-6"></i>
+                </button>
+            </div>
+        </div>
+        
+        <div id="mobile-menu" class="hidden md:hidden bg-white border-t border-gray-200">
+            <div class="px-4 pt-2 pb-3 space-y-1">
+                <a href="index.html" class="block px-3 py-2 rounded-md text-base font-medium text-gray-700 hover:bg-gray-50">Home</a>
+                <a href="services.html" class="block px-3 py-2 rounded-md text-base font-medium text-indigo-600 bg-gray-50">Services</a>
+                <a href="booking.html" class="block px-3 py-2 rounded-md text-base font-medium text-gray-700 hover:bg-gray-50">Book</a>
+                <a href="dashboard.html" class="block px-3 py-2 rounded-md text-base font-medium text-gray-700 hover:bg-gray-50">Dashboard</a>
+                <a href="features.html" class="block px-3 py-2 rounded-md text-base font-medium text-gray-700 hover:bg-gray-50">Features</a>
+                <a href="contact.html" class="block px-3 py-2 rounded-md text-base font-medium text-gray-700 hover:bg-gray-50">Contact</a>
+            </div>
+        </div>
+    </nav>
+
+    <div class="pt-16 bg-gradient-to-b from-indigo-50 to-white py-16">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center mb-12">
+                <h1 class="text-4xl font-bold text-gray-900 mb-4">Our Services</h1>
+                <p class="text-gray-600 max-w-2xl mx-auto">Browse our wide range of professional services with smart scheduling features.</p>
+            </div>
+
+            <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
+                <!-- Haircut -->
+                <div class="service-card bg-white rounded-2xl shadow-lg overflow-hidden border border-gray-100">
+                    <div class="h-48 bg-gradient-to-br from-blue-400 to-blue-600 flex items-center justify-center">
+                        <i data-lucide="scissors" class="h-16 w-16 text-white opacity-80"></i>
+                    </div>
+                    <div class="p-6">
+                        <div class="flex justify-between items-start mb-4">
+                            <div>
+                                <h3 class="text-xl font-bold text-gray-900">Haircut & Styling</h3>
+                                <p class="text-sm text-gray-500">Beauty & Personal Care</p>
+                            </div>
+                            <span class="bg-green-100 text-green-800 text-xs font-semibold px-3 py-1 rounded-full">Popular</span>
+                        </div>
+                        <div class="space-y-3 mb-6">
+                            <div class="flex items-center text-sm text-gray-600">
+                                <i data-lucide="clock" class="h-4 w-4 mr-2 text-indigo-600"></i>
+                                <span>Duration: 45 minutes</span>
+                            </div>
+                            <div class="flex items-center text-sm text-gray-600">
+                                <i data-lucide="hourglass" class="h-4 w-4 mr-2 text-indigo-600"></i>
+                                <span>Buffer: 15 minutes</span>
+                            </div>
+                            <div class="flex items-center text-sm text-gray-600">
+                                <i data-lucide="dollar-sign" class="h-4 w-4 mr-2 text-indigo-600"></i>
+                                <span>From $45.00</span>
+                            </div>
+                        </div>
+                        <button onclick="selectService('haircut')" class="w-full bg-indigo-600 text-white py-3 rounded-xl font-semibold hover:bg-indigo-700 transition flex items-center justify-center gap-2">
+                            Book Now <i data-lucide="arrow-right" class="h-4 w-4"></i>
+                        </button>
+                    </div>
+                </div>
+
+                <!-- Doctor -->
+                <div class="service-card bg-white rounded-2xl shadow-lg overflow-hidden border border-gray-100">
+                    <div class="h-48 bg-gradient-to-br from-red-400 to-red-600 flex items-center justify-center">
+                        <i data-lucide="stethoscope" class="h-16 w-16 text-white opacity-80"></i>
+                    </div>
+                    <div class="p-6">
+                        <div class="flex justify-between items-start mb-4">
+                            <div>
+                                <h3 class="text-xl font-bold text-gray-900">Doctor Visit</h3>
+                                <p class="text-sm text-gray-500">Healthcare & Medical</p>
+                            </div>
+                        </div>
+                        <div class="space-y-3 mb-6">
+                            <div class="flex items-center text-sm text-gray-600">
+                                <i data-lucide="clock" class="h-4 w-4 mr-2 text-indigo-600"></i>
+                                <span>Duration: 30 minutes</span>
+                            </div>
+                            <div class="flex items-center text-sm text-gray-600">
+                                <i data-lucide="hourglass" class="h-4 w-4 mr-2 text-indigo-600"></i>
+                                <span>Buffer: 10 minutes</span>
+                            </div>
+                            <div class="flex items-center text-sm text-gray-600">
+                                <i data-lucide="dollar-sign" class="h-4 w-4 mr-2 text-indigo-600"></i>
+                                <span>From $120.00</span>
+                            </div>
+                        </div>
+                        <button onclick="selectService('doctor')" class="w-full bg-indigo-600 text-white py-3 rounded-xl font-semibold hover:bg-indigo-700 transition flex items-center justify-center gap-2">
+                            Book Now <i data-lucide="arrow-right" class="h-4 w-4"></i>
+                        </button>
+                    </div>
+                </div>
+
+                <!-- Consultation -->
+                <div class="service-card bg-white rounded-2xl shadow-lg overflow-hidden border border-gray-100">
+                    <div class="h-48 bg-gradient-to-br from-purple-400 to-purple-600 flex items-center justify-center">
+                        <i data-lucide="briefcase" class="h-16 w-16 text-white opacity-80"></i>
+                    </div>
+                    <div class="p-6">
+                        <div class="flex justify-between items-start mb-4">
+                            <div>
+                                <h3 class="text-xl font-bold text-gray-900">Consultation</h3>
+                                <p class="text-sm text-gray-500">Business & Career</p>
+                            </div>
+                            <span class="bg-purple-100 text-purple-800 text-xs font-semibold px-3 py-1 rounded-full">Virtual</span>
+                        </div>
+                        <div class="space-y-3 mb-6">
+                            <div class="flex items-center text-sm text-gray-600">
+                                <i data-lucide="clock" class="h-4 w-4 mr-2 text-indigo-600"></i>
+                                <span>Duration: 60 minutes</span>
+                            </div>
+                            <div class="flex items-center text-sm text-gray-600">
+                                <i data-lucide="hourglass" class="h-4 w-4 mr-2 text-indigo-600"></i>
+                                <span>Buffer: 15 minutes</span>
+                            </div>
+                            <div class="flex items-center text-sm text-gray-600">
+                                <i data-lucide="dollar-sign" class="h-4 w-4 mr-2 text-indigo-600"></i>
+                                <span>From $150.00</span>
+                            </div>
+                        </div>
+                        <button onclick="selectService('consultation')" class="w-full bg-indigo-600 text-white py-3 rounded-xl font-semibold hover:bg-indigo-700 transition flex items-center justify-center gap-2">
+                            Book Now <i data-lucide="arrow-right" class="h-4 w-4"></i>
+                        </button>
+                    </div>
+                </div>
+
+                <!-- Repair -->
+                <div class="service-card bg-white rounded-2xl shadow-lg overflow-hidden border border-gray-100">
+                    <div class="h-48 bg-gradient-to-br from-amber-400 to-amber-600 flex items-center justify-center">
+                        <i data-lucide="wrench" class="h-16 w-16 text-white opacity-80"></i>
+                    </div>
+                    <div class="p-6">
+                        <div class="flex justify-between items-start mb-4">
+                            <div>
+                                <h3 class="text-xl font-bold text-gray-900">Repair Service</h3>
+                                <p class="text-sm text-gray-500">Home & Technical</p>
+                            </div>
+                        </div>
+                        <div class="space-y-3 mb-6">
+                            <div class="flex items-center text-sm text-gray-600">
+                                <i data-lucide="clock" class="h-4 w-4 mr-2 text-indigo-600"></i>
+                                <span>Duration: 90 minutes</span>
+                            </div>
+                            <div class="flex items-center text-sm text-gray-600">
+                                <i data-lucide="hourglass" class="h-4 w-4 mr-2 text-indigo-600"></i>
+                                <span>Buffer: 30 minutes</span>
+                            </div>
+                            <div class="flex items-center text-sm text-gray-600">
+                                <i data-lucide="dollar-sign" class="h-4 w-4 mr-2 text-indigo-600"></i>
+                                <span>From $85.00</span>
+                            </div>
+                        </div>
+                        <button onclick="selectService('repair')" class="w-full bg-indigo-600 text-white py-3 rounded-xl font-semibold hover:bg-indigo-700 transition flex items-center justify-center gap-2">
+                            Book Now <i data-lucide="arrow-right" class="h-4 w-4"></i>
+                        </button>
+                    </div>
+                </div>
+
+                <!-- Training -->
+                <div class="service-card bg-white rounded-2xl shadow-lg overflow-hidden border border-gray-100">
+                    <div class="h-48 bg-gradient-to-br from-green-400 to-green-600 flex items-center justify-center">
+                        <i data-lucide="dumbbell" class="h-16 w-16 text-white opacity-80"></i>
+                    </div>
+                    <div class="p-6">
+                        <div class="flex justify-between items-start mb-4">
+                            <div>
+                                <h3 class="text-xl font-bold text-gray-900">Training Session</h3>
+                                <p class="text-sm text-gray-500">Fitness & Wellness</p>
+                            </div>
+                            <span class="bg-green-100 text-green-800 text-xs font-semibold px-3 py-1 rounded-full">Trending</span>
+                        </div>
+                        <div class="space-y-3 mb-6">
+                            <div class="flex items-center text-sm text-gray-600">
+                                <i data-lucide="clock" class="h-4 w-4 mr-2 text-indigo-600"></i>
+                                <span>Duration: 60 minutes</span>
+                            </div>
+                            <div class="flex items-center text-sm text-gray-600">
+                                <i data-lucide="hourglass" class="h-4 w-4 mr-2 text-indigo-600"></i>
+                                <span>Buffer: 15 minutes</span>
+                            </div>
+                            <div class="flex items-center text-sm text-gray-600">
+                                <i data-lucide="dollar-sign" class="h-4 w-4 mr-2 text-indigo-600"></i>
+                                <span>From $65.00</span>
+                            </div>
+                        </div>
+                        <button onclick="selectService('training')" class="w-full bg-indigo-600 text-white py-3 rounded-xl font-semibold hover:bg-indigo-700 transition flex items-center justify-center gap-2">
+                            Book Now <i data-lucide="arrow-right" class="h-4 w-4"></i>
+                        </button>
+                    </div>
+                </div>
+
+                <!-- Spa -->
+                <div class="service-card bg-white rounded-2xl shadow-lg overflow-hidden border border-gray-100">
+                    <div class="h-48 bg-gradient-to-br from-indigo-400 to-indigo-600 flex items-center justify-center">
+                        <i data-lucide="sparkles" class="h-16 w-16 text-white opacity-80"></i>
+                    </div>
+                    <div class="p-6">
+                        <div class="flex justify-between items-start mb-4">
+                            <div>
+                                <h3 class="text-xl font-bold text-gray-900">Spa Treatment</h3>
+                                <p class="text-sm text-gray-500">Relaxation & Care</p>
+                            </div>
+                        </div>
+                        <div class="space-y-3 mb-6">
+                            <div class="flex items-center text-sm text-gray-600">
+                                <i data-lucide="clock" class="h-4 w-4 mr-2 text-indigo-600"></i>
+                                <span>Duration: 120 minutes</span>
+                            </div>
+                            <div class="flex items-center text-sm text-gray-600">
+                                <i data-lucide="hourglass" class="h-4 w-4 mr-2 text-indigo-600"></i>
+                                <span>Buffer: 30 minutes</span>
+                            </div>
+                            <div class="flex items-center text-sm text-gray-600">
+                                <i data-lucide="dollar-sign" class="h-4 w-4 mr-2 text-indigo-600"></i>
+                                <span>From $200.00</span>
+                            </div>
+                        </div>
+                        <button onclick="selectService('spa')" class="w-full bg-indigo-600 text-white py-3 rounded-xl font-semibold hover:bg-indigo-700 transition flex items-center justify-center gap-2">
+                            Book Now <i data-lucide="arrow-right" class="h-4 w-4"></i>
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <footer class="bg-gray-900 text-white py-12 mt-20">
+        <div class="max-w-7xl mx-auto px-4 text-center">
+            <p class="text-gray-400">&copy; 2026 SmartSchedule Pro. All rights reserved.</p>
+        </div>
+    </footer>
+
+    <script src="js/main.js"></script>
+</body>
+</html>

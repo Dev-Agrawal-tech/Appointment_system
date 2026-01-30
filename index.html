@@ -1,0 +1,236 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>SmartSchedule Pro - Online Appointment System</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script src="https://unpkg.com/lucide@latest"></script>
+    <link rel="stylesheet" href="css/style.css">
+</head>
+<body class="bg-gray-50 text-gray-800">
+    <!-- Navigation -->
+    <nav class="fixed w-full z-50 glass-effect border-b border-gray-200">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex justify-between h-16 items-center">
+                <div class="flex items-center cursor-pointer" onclick="window.location.href='index.html'">
+                    <div class="gradient-bg p-2 rounded-lg mr-3">
+                        <i data-lucide="calendar-check" class="h-6 w-6 text-white"></i>
+                    </div>
+                    <span class="text-xl font-bold gradient-text">SmartSchedule</span>
+                </div>
+                
+                <div class="hidden md:flex space-x-8">
+                    <a href="index.html" class="nav-link active text-indigo-600 font-medium">Home</a>
+                    <a href="services.html" class="nav-link text-gray-700 hover:text-indigo-600 font-medium transition">Services</a>
+                    <a href="booking.html" class="nav-link text-gray-700 hover:text-indigo-600 font-medium transition">Book Appointment</a>
+                    <a href="dashboard.html" class="nav-link text-gray-700 hover:text-indigo-600 font-medium transition">Dashboard</a>
+                    <a href="features.html" class="nav-link text-gray-700 hover:text-indigo-600 font-medium transition">Features</a>
+                    <a href="contact.html" class="nav-link text-gray-700 hover:text-indigo-600 font-medium transition">Contact</a>
+                </div>
+
+                <div class="hidden md:flex items-center space-x-4">
+                    <a href="login.html" class="text-gray-700 hover:text-indigo-600 font-medium">Log In</a>
+                    <button onclick="selectRoleAndRedirect('professional')" class="gradient-bg text-white px-5 py-2 rounded-full font-medium hover:shadow-lg transition transform hover:-translate-y-0.5">
+                        Join as Professional
+                    </button>
+                </div>
+
+                <button onclick="toggleMobileMenu()" class="md:hidden p-2 rounded-lg hover:bg-gray-100">
+                    <i data-lucide="menu" class="h-6 w-6"></i>
+                </button>
+            </div>
+        </div>
+
+        <!-- Mobile Menu -->
+        <div id="mobile-menu" class="hidden md:hidden bg-white border-t border-gray-200">
+            <div class="px-4 pt-2 pb-3 space-y-1">
+                <a href="index.html" class="block px-3 py-2 rounded-md text-base font-medium text-indigo-600 bg-gray-50">Home</a>
+                <a href="services.html" class="block px-3 py-2 rounded-md text-base font-medium text-gray-700 hover:text-indigo-600 hover:bg-gray-50">Services</a>
+                <a href="booking.html" class="block px-3 py-2 rounded-md text-base font-medium text-gray-700 hover:text-indigo-600 hover:bg-gray-50">Book Appointment</a>
+                <a href="dashboard.html" class="block px-3 py-2 rounded-md text-base font-medium text-gray-700 hover:text-indigo-600 hover:bg-gray-50">Dashboard</a>
+                <a href="features.html" class="block px-3 py-2 rounded-md text-base font-medium text-gray-700 hover:text-indigo-600 hover:bg-gray-50">Features</a>
+                <a href="contact.html" class="block px-3 py-2 rounded-md text-base font-medium text-gray-700 hover:text-indigo-600 hover:bg-gray-50">Contact</a>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section class="pt-16 relative overflow-hidden bg-gradient-to-br from-indigo-50 via-white to-purple-50 py-20 lg:py-32">
+        <div class="absolute inset-0 opacity-30">
+            <div class="absolute inset-0 bg-[url('data:image/svg+xml,%3Csvg%20width%3D%2260%22%20height%3D%2260%22%20viewBox%3D%220%200%2060%2060%22%20xmlns%3D%22http%3A//www.w3.org/2000/svg%22%3E%3Cg%20fill%3D%22none%22%20fill-rule%3D%22evenodd%22%3E%3Cg%20fill%3D%22%239C92AC%22%20fill-opacity%3D%220.1%22%3E%3Cpath%20d%3D%22M36%2034v-4h-2v4h-4v2h4v4h2v-4h4v-2h-4zm0-30V0h-2v4h-4v2h4v4h2V6h4V4h-4zM6%2034v-4H4v4H0v2h4v4h2v-4h4v-2H6zM6%204V0H4v4H0v2h4v4h2V6h4V4H6z%22/%3E%3C/g%3E%3C/g%3E%3C/svg%3E')] opacity-20"></div>
+        </div>
+        
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative">
+            <div class="grid lg:grid-cols-2 gap-12 items-center">
+                <div>
+                    <div class="inline-flex items-center px-4 py-2 rounded-full bg-indigo-100 text-indigo-800 text-sm font-semibold mb-6">
+                        <span class="flex h-2 w-2 rounded-full bg-indigo-600 mr-2"></span>
+                        #1 Scheduling Platform for Professionals
+                    </div>
+                    <h1 class="text-5xl lg:text-6xl font-bold text-gray-900 leading-tight mb-6">
+                        Book Appointments Easily with <span class="gradient-text">Smart Scheduling Assistant</span>
+                    </h1>
+                    <p class="text-xl text-gray-600 mb-8 leading-relaxed">
+                        Eliminate double bookings and missed appointments forever. Our AI-powered system automatically detects conflicts, manages buffers, and keeps your schedule optimized.
+                    </p>
+                    <div class="flex flex-col sm:flex-row gap-4">
+                        <a href="booking.html" class="gradient-bg text-white px-8 py-4 rounded-full font-semibold text-lg hover:shadow-xl transition transform hover:-translate-y-1 flex items-center justify-center">
+                            Book Appointment
+                            <i data-lucide="arrow-right" class="ml-2 h-5 w-5"></i>
+                        </a>
+                        <button onclick="selectRoleAndRedirect('professional')" class="bg-white text-indigo-600 border-2 border-indigo-600 px-8 py-4 rounded-full font-semibold text-lg hover:bg-indigo-50 transition flex items-center justify-center">
+                            Join as Professional
+                        </button>
+                    </div>
+                </div>
+                
+                <div class="relative">
+                    <div class="absolute inset-0 gradient-bg rounded-3xl transform rotate-3 opacity-20"></div>
+                    <div class="relative bg-white rounded-2xl shadow-2xl p-6 border border-gray-100">
+                        <div class="flex items-center justify-between mb-6">
+                            <h3 class="font-semibold text-lg">February 2026</h3>
+                            <div class="flex gap-2">
+                                <button class="p-1 hover:bg-gray-100 rounded"><i data-lucide="chevron-left" class="h-5 w-5"></i></button>
+                                <button class="p-1 hover:bg-gray-100 rounded"><i data-lucide="chevron-right" class="h-5 w-5"></i></button>
+                            </div>
+                        </div>
+                        <div class="grid grid-cols-7 gap-2 text-center text-sm mb-4">
+                            <span class="text-gray-400">Su</span><span class="text-gray-400">Mo</span><span class="text-gray-400">Tu</span><span class="text-gray-400">We</span><span class="text-gray-400">Th</span><span class="text-gray-400">Fr</span><span class="text-gray-400">Sa</span>
+                        </div>
+                        <div class="grid grid-cols-7 gap-2">
+                            <span class="p-2 text-gray-300">26</span>
+                            <span class="p-2 text-gray-300">27</span>
+                            <span class="p-2 text-gray-300">28</span>
+                            <span class="p-2 text-gray-300">29</span>
+                            <span class="p-2 text-gray-300">30</span>
+                            <span class="p-2 text-gray-300">31</span>
+                            <span class="p-2 hover:bg-indigo-50 rounded-lg cursor-pointer">1</span>
+                            <span class="p-2 hover:bg-indigo-50 rounded-lg cursor-pointer">2</span>
+                            <span class="p-2 bg-indigo-600 text-white rounded-lg shadow-lg">3</span>
+                            <span class="p-2 hover:bg-indigo-50 rounded-lg cursor-pointer">4</span>
+                            <span class="p-2 hover:bg-indigo-50 rounded-lg cursor-pointer relative">5<span class="absolute bottom-1 left-1/2 transform -translate-x-1/2 w-1 h-1 bg-amber-400 rounded-full"></span></span>
+                            <span class="p-2 hover:bg-indigo-50 rounded-lg cursor-pointer">6</span>
+                            <span class="p-2 hover:bg-indigo-50 rounded-lg cursor-pointer">7</span>
+                        </div>
+                        
+                        <div class="mt-6 space-y-3">
+                            <div class="flex items-center gap-3 p-3 bg-green-50 rounded-xl border border-green-100">
+                                <div class="w-2 h-2 bg-green-500 rounded-full"></div>
+                                <div class="flex-1">
+                                    <p class="text-sm font-medium text-gray-900">10:00 AM - Dr. Sarah Consultation</p>
+                                    <p class="text-xs text-gray-500">Video Call • Confirmed</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <!-- Floating Badge -->
+                    <div class="absolute -bottom-6 -left-6 bg-white rounded-xl shadow-xl p-4 border border-gray-100 animate-bounce">
+                        <div class="flex items-center gap-3">
+                            <div class="bg-green-100 p-2 rounded-lg">
+                                <i data-lucide="check-circle" class="h-6 w-6 text-green-600"></i>
+                            </div>
+                            <div>
+                                <p class="text-sm font-semibold text-gray-900">AI Protected</p>
+                                <p class="text-xs text-gray-500">No conflicts detected</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Features Grid -->
+    <section class="py-20 bg-white">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center mb-16">
+                <h2 class="text-3xl font-bold text-gray-900 mb-4">Smart Features for Smart Professionals</h2>
+                <p class="text-gray-600 max-w-2xl mx-auto">Everything you need to manage your appointments efficiently.</p>
+            </div>
+            
+            <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
+                <div class="feature-card group p-8 rounded-2xl bg-gray-50 hover:bg-white border border-transparent hover:border-gray-100 transition-all duration-300">
+                    <div class="w-14 h-14 bg-indigo-100 rounded-xl flex items-center justify-center mb-6 group-hover:scale-110 transition-transform">
+                        <i data-lucide="brain" class="h-7 w-7 text-indigo-600"></i>
+                    </div>
+                    <h3 class="text-xl font-semibold text-gray-900 mb-3">AI Conflict Detection</h3>
+                    <p class="text-gray-600">Advanced algorithms automatically detect and prevent double bookings and overlapping appointments.</p>
+                </div>
+                
+                <div class="feature-card group p-8 rounded-2xl bg-gray-50 hover:bg-white border border-transparent hover:border-gray-100 transition-all duration-300">
+                    <div class="w-14 h-14 bg-purple-100 rounded-xl flex items-center justify-center mb-6 group-hover:scale-110 transition-transform">
+                        <i data-lucide="clock" class="h-7 w-7 text-purple-600"></i>
+                    </div>
+                    <h3 class="text-xl font-semibold text-gray-900 mb-3">Smart Buffer Scheduling</h3>
+                    <p class="text-gray-600">Automatically adds buffer time between appointments for preparation, travel, or breaks.</p>
+                </div>
+                
+                <div class="feature-card group p-8 rounded-2xl bg-gray-50 hover:bg-white border border-transparent hover:border-gray-100 transition-all duration-300">
+                    <div class="w-14 h-14 bg-blue-100 rounded-xl flex items-center justify-center mb-6 group-hover:scale-110 transition-transform">
+                        <i data-lucide="refresh-cw" class="h-7 w-7 text-blue-600"></i>
+                    </div>
+                    <h3 class="text-xl font-semibold text-gray-900 mb-3">Auto-Reschedule Assistant</h3>
+                    <p class="text-gray-600">When cancellations occur, automatically offers the slot to waitlisted clients.</p>
+                </div>
+                
+                <div class="feature-card group p-8 rounded-2xl bg-gray-50 hover:bg-white border border-transparent hover:border-gray-100 transition-all duration-300">
+                    <div class="w-14 h-14 bg-green-100 rounded-xl flex items-center justify-center mb-6 group-hover:scale-110 transition-transform">
+                        <i data-lucide="bell" class="h-7 w-7 text-green-600"></i>
+                    </div>
+                    <h3 class="text-xl font-semibold text-gray-900 mb-3">Smart Reminders</h3>
+                    <p class="text-gray-600">Multi-channel reminders via SMS, email, and push notifications.</p>
+                </div>
+                
+                <div class="feature-card group p-8 rounded-2xl bg-gray-50 hover:bg-white border border-transparent hover:border-gray-100 transition-all duration-300">
+                    <div class="w-14 h-14 bg-amber-100 rounded-xl flex items-center justify-center mb-6 group-hover:scale-110 transition-transform">
+                        <i data-lucide="qr-code" class="h-7 w-7 text-amber-600"></i>
+                    </div>
+                    <h3 class="text-xl font-semibold text-gray-900 mb-3">QR Check-In System</h3>
+                    <p class="text-gray-600">Contactless check-in for clients with automatic status updates.</p>
+                </div>
+                
+                <div class="feature-card group p-8 rounded-2xl bg-gray-50 hover:bg-white border border-transparent hover:border-gray-100 transition-all duration-300">
+                    <div class="w-14 h-14 bg-rose-100 rounded-xl flex items-center justify-center mb-6 group-hover:scale-110 transition-transform">
+                        <i data-lucide="list" class="h-7 w-7 text-rose-600"></i>
+                    </div>
+                    <h3 class="text-xl font-semibold text-gray-900 mb-3">Smart Waitlist Feature</h3>
+                    <p class="text-gray-600">Automatically fill canceled slots from your waitlist ranked by priority.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Stats & CTA -->
+    <section class="py-20 gradient-bg text-white">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+            <div class="grid grid-cols-2 md:grid-cols-4 gap-8 mb-12">
+                <div><p class="text-4xl font-bold mb-2">98%</p><p class="text-indigo-100">Reduction in Double Bookings</p></div>
+                <div><p class="text-4xl font-bold mb-2">45%</p><p class="text-indigo-100">Fewer No-Shows</p></div>
+                <div><p class="text-4xl font-bold mb-2">10k+</p><p class="text-indigo-100">Active Professionals</p></div>
+                <div><p class="text-4xl font-bold mb-2">1M+</p><p class="text-indigo-100">Appointments Scheduled</p></div>
+            </div>
+            <h2 class="text-3xl font-bold mb-6">Ready to streamline your scheduling?</h2>
+            <a href="booking.html" class="bg-white text-indigo-600 px-8 py-4 rounded-full font-semibold text-lg hover:bg-gray-100 transition inline-block">
+                Book Your First Appointment
+            </a>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="bg-gray-900 text-white py-12">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="grid md:grid-cols-4 gap-8 mb-8">
+                <div>
+                    <div class="flex items-center mb-4">
+                        <i data-lucide="calendar-check" class="h-6 w-6 text-indigo-400 mr-2"></i>
+                        <span class="text-xl font-bold">SmartSchedule</span>
+                    </div>
+                    <p class="text-gray-400 text-sm">Intelligent appointment scheduling for modern service professionals.</p>
+                </div>
+                <div>
+                    <h4 class="font-semibold mb-4">Product</h4>
+                    <ul class="space-y-2 text-sm text-gray-400">
+                        <li><a href="features.html" class="hover:text-white">Features</a></li>
+                        <li><a href="services.html" class="hover:text

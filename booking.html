@@ -1,0 +1,168 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Book Appointment - SmartSchedule Pro</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script src="https://unpkg.com/lucide@latest"></script>
+    <link rel="stylesheet" href="css/style.css">
+</head>
+<body class="bg-gray-50 text-gray-800">
+    <nav class="fixed w-full z-50 glass-effect border-b border-gray-200">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex justify-between h-16 items-center">
+                <a href="index.html" class="flex items-center">
+                    <div class="gradient-bg p-2 rounded-lg mr-3">
+                        <i data-lucide="calendar-check" class="h-6 w-6 text-white"></i>
+                    </div>
+                    <span class="text-xl font-bold gradient-text">SmartSchedule</span>
+                </a>
+                
+                <div class="hidden md:flex space-x-8">
+                    <a href="index.html" class="nav-link text-gray-700 hover:text-indigo-600 font-medium">Home</a>
+                    <a href="services.html" class="nav-link text-gray-700 hover:text-indigo-600 font-medium">Services</a>
+                    <a href="booking.html" class="nav-link active text-indigo-600 font-medium">Book</a>
+                    <a href="dashboard.html" class="nav-link text-gray-700 hover:text-indigo-600 font-medium">Dashboard</a>
+                    <a href="features.html" class="nav-link text-gray-700 hover:text-indigo-600 font-medium">Features</a>
+                    <a href="contact.html" class="nav-link text-gray-700 hover:text-indigo-600 font-medium">Contact</a>
+                </div>
+
+                <div class="hidden md:flex items-center space-x-4">
+                    <a href="login.html" class="text-gray-700 hover:text-indigo-600 font-medium">Log In</a>
+                    <a href="login.html" class="gradient-bg text-white px-5 py-2 rounded-full font-medium">Get Started</a>
+                </div>
+
+                <button onclick="toggleMobileMenu()" class="md:hidden p-2 rounded-lg hover:bg-gray-100">
+                    <i data-lucide="menu" class="h-6 w-6"></i>
+                </button>
+            </div>
+        </div>
+    </nav>
+
+    <div class="pt-16 min-h-screen bg-gray-50 py-12">
+        <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="bg-white rounded-3xl shadow-xl overflow-hidden">
+                <div class="gradient-bg px-8 py-6">
+                    <h1 class="text-2xl font-bold text-white">Book Your Appointment</h1>
+                    <p class="text-indigo-100 mt-1">No double booking guaranteed with AI protection</p>
+                </div>
+                
+                <div class="p-8">
+                    <form id="bookingForm" onsubmit="handleBooking(event)">
+                        <!-- Service Selection -->
+                        <div class="mb-8">
+                            <label class="block text-sm font-medium text-gray-700 mb-3">Select Service</label>
+                            <div class="grid grid-cols-2 md:grid-cols-3 gap-4">
+                                <label class="cursor-pointer">
+                                    <input type="radio" name="service" value="haircut" class="peer sr-only" onchange="updateProfessionals('haircut')" checked>
+                                    <div class="p-4 rounded-xl border-2 border-gray-200 peer-checked:border-indigo-600 peer-checked:bg-indigo-50 transition-all text-center">
+                                        <i data-lucide="scissors" class="h-6 w-6 mx-auto mb-2 text-gray-400 peer-checked:text-indigo-600"></i>
+                                        <span class="text-sm font-medium">Haircut</span>
+                                    </div>
+                                </label>
+                                <label class="cursor-pointer">
+                                    <input type="radio" name="service" value="doctor" class="peer sr-only" onchange="updateProfessionals('doctor')">
+                                    <div class="p-4 rounded-xl border-2 border-gray-200 peer-checked:border-indigo-600 peer-checked:bg-indigo-50 transition-all text-center">
+                                        <i data-lucide="stethoscope" class="h-6 w-6 mx-auto mb-2 text-gray-400 peer-checked:text-indigo-600"></i>
+                                        <span class="text-sm font-medium">Doctor</span>
+                                    </div>
+                                </label>
+                                <label class="cursor-pointer">
+                                    <input type="radio" name="service" value="consultation" class="peer sr-only" onchange="updateProfessionals('consultation')">
+                                    <div class="p-4 rounded-xl border-2 border-gray-200 peer-checked:border-indigo-600 peer-checked:bg-indigo-50 transition-all text-center">
+                                        <i data-lucide="briefcase" class="h-6 w-6 mx-auto mb-2 text-gray-400 peer-checked:text-indigo-600"></i>
+                                        <span class="text-sm font-medium">Consultation</span>
+                                    </div>
+                                </label>
+                            </div>
+                        </div>
+
+                        <!-- Professional Selection -->
+                        <div class="mb-8">
+                            <label class="block text-sm font-medium text-gray-700 mb-3">Choose Professional</label>
+                            <select id="professional" class="w-full px-4 py-3 rounded-xl border border-gray-300 focus:ring-2 focus:ring-indigo-500 focus:border-indigo-500" required>
+                                <option value="">Select a professional...</option>
+                            </select>
+                        </div>
+
+                        <!-- Date Selection -->
+                        <div class="mb-8">
+                            <label class="block text-sm font-medium text-gray-700 mb-3">Select Date</label>
+                            <input type="date" id="bookingDate" min="today" class="w-full px-4 py-3 rounded-xl border border-gray-300 focus:ring-2 focus:ring-indigo-500 focus:border-indigo-500" required>
+                        </div>
+
+                        <!-- Time Slots -->
+                        <div class="mb-8">
+                            <label class="block text-sm font-medium text-gray-700 mb-3">Available Time Slots</label>
+                            <div class="grid grid-cols-3 sm:grid-cols-4 md:grid-cols-6 gap-3" id="timeSlots">
+                                <button type="button" class="time-slot py-2 px-4 rounded-lg border border-gray-300 text-sm font-medium" onclick="selectTime(this)">9:00 AM</button>
+                                <button type="button" class="time-slot py-2 px-4 rounded-lg border border-gray-300 text-sm font-medium" onclick="selectTime(this)">9:30 AM</button>
+                                <button type="button" class="time-slot py-2 px-4 rounded-lg border border-gray-300 text-sm font-medium disabled" disabled>10:00 AM</button>
+                                <button type="button" class="time-slot py-2 px-4 rounded-lg border border-gray-300 text-sm font-medium" onclick="selectTime(this)">10:30 AM</button>
+                                <button type="button" class="time-slot py-2 px-4 rounded-lg border border-gray-300 text-sm font-medium" onclick="selectTime(this)">11:00 AM</button>
+                                <button type="button" class="time-slot py-2 px-4 rounded-lg border border-gray-300 text-sm font-medium disabled" disabled>11:30 AM</button>
+                                <button type="button" class="time-slot py-2 px-4 rounded-lg border border-gray-300 text-sm font-medium" onclick="selectTime(this)">2:00 PM</button>
+                                <button type="button" class="time-slot py-2 px-4 rounded-lg border border-gray-300 text-sm font-medium" onclick="selectTime(this)">2:30 PM</button>
+                                <button type="button" class="time-slot py-2 px-4 rounded-lg border border-gray-300 text-sm font-medium" onclick="selectTime(this)">3:00 PM</button>
+                                <button type="button" class="time-slot py-2 px-4 rounded-lg border border-gray-300 text-sm font-medium disabled" disabled>3:30 PM</button>
+                                <button type="button" class="time-slot py-2 px-4 rounded-lg border border-gray-300 text-sm font-medium" onclick="selectTime(this)">4:00 PM</button>
+                                <button type="button" class="time-slot py-2 px-4 rounded-lg border border-gray-300 text-sm font-medium" onclick="selectTime(this)">4:30 PM</button>
+                            </div>
+                            <input type="hidden" id="selectedTime" required>
+                        </div>
+
+                        <!-- Customer Details -->
+                        <div class="grid md:grid-cols-2 gap-6 mb-8">
+                            <div>
+                                <label class="block text-sm font-medium text-gray-700 mb-2">Full Name</label>
+                                <input type="text" class="w-full px-4 py-3 rounded-xl border border-gray-300 focus:ring-2 focus:ring-indigo-500 focus:border-indigo-500" placeholder="John Doe" required>
+                            </div>
+                            <div>
+                                <label class="block text-sm font-medium text-gray-700 mb-2">Email</label>
+                                <input type="email" class="w-full px-4 py-3 rounded-xl border border-gray-300 focus:ring-2 focus:ring-indigo-500 focus:border-indigo-500" placeholder="john@example.com" required>
+                            </div>
+                            <div>
+                                <label class="block text-sm font-medium text-gray-700 mb-2">Phone</label>
+                                <input type="tel" class="w-full px-4 py-3 rounded-xl border border-gray-300 focus:ring-2 focus:ring-indigo-500 focus:border-indigo-500" placeholder="+1 (555) 123-4567" required>
+                            </div>
+                            <div>
+                                <label class="block text-sm font-medium text-gray-700 mb-2">Notes (Optional)</label>
+                                <input type="text" class="w-full px-4 py-3 rounded-xl border border-gray-300 focus:ring-2 focus:ring-indigo-500 focus:border-indigo-500" placeholder="Any special requests...">
+                            </div>
+                        </div>
+
+                        <!-- Smart Features Info -->
+                        <div class="bg-indigo-50 rounded-xl p-4 mb-8 flex items-start gap-3">
+                            <i data-lucide="shield-check" class="h-5 w-5 text-indigo-600 mt-0.5 flex-shrink-0"></i>
+                            <div>
+                                <p class="text-sm font-medium text-indigo-900">AI Protection Active</p>
+                                <p class="text-sm text-indigo-700 mt-1">This slot has been verified for conflicts. Buffer time of 15 minutes will be automatically added after your appointment.</p>
+                            </div>
+                        </div>
+
+                        <button type="submit" class="w-full gradient-bg text-white py-4 rounded-xl font-semibold text-lg hover:shadow-xl transition transform hover:-translate-y-0.5 flex items-center justify-center gap-2">
+                            <i data-lucide="calendar-check" class="h-5 w-5"></i>
+                            Confirm Booking
+                        </button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Success Modal -->
+    <div id="successModal" class="modal">
+        <div class="bg-white rounded-3xl p-8 max-w-md w-full text-center m-4">
+            <div class="w-20 h-20 bg-green-100 rounded-full flex items-center justify-center mx-auto mb-6">
+                <i data-lucide="check" class="h-10 w-10 text-green-600"></i>
+            </div>
+            <h3 class="text-2xl font-bold text-gray-900 mb-2">Booking Confirmed!</h3>
+            <p class="text-gray-600 mb-6">Your appointment has been scheduled successfully.</p>
+            <div class="bg-gray-50 rounded-xl p-4 mb-6 text-left space-y-2">
+                <p class="text-sm text-gray-600"><span class="font-semibold">Service:</span> <span id="modalService">Haircut</span></p>
+                <p class="text-sm text-gray-600"><span class="font-semibold">Professional:</span> <span id="modalProfessional">-</span></p>
+                <p class="text-sm text-gray-600"><span class="font-semibold">Date:</span> <span id="modalDate">-</span></p>
+                <p class="text-sm text-gray-600"><span class="font-semibold">Time:</span> <span id="modalTime">-</span></p>
+            </div>
+            <button onclick="closeModal()" class="w-full bg-indigo

@@ -1,0 +1,158 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Features - SmartSchedule Pro</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script src="https://unpkg.com/lucide@latest"></script>
+    <link rel="stylesheet" href="css/style.css">
+</head>
+<body class="bg-gray-50 text-gray-800">
+    <nav class="fixed w-full z-50 glass-effect border-b border-gray-200">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex justify-between h-16 items-center">
+                <a href="index.html" class="flex items-center">
+                    <div class="gradient-bg p-2 rounded-lg mr-3">
+                        <i data-lucide="calendar-check" class="h-6 w-6 text-white"></i>
+                    </div>
+                    <span class="text-xl font-bold gradient-text">SmartSchedule</span>
+                </a>
+                
+                <div class="hidden md:flex space-x-8">
+                    <a href="index.html" class="nav-link text-gray-700 hover:text-indigo-600 font-medium">Home</a>
+                    <a href="services.html" class="nav-link text-gray-700 hover:text-indigo-600 font-medium">Services</a>
+                    <a href="booking.html" class="nav-link text-gray-700 hover:text-indigo-600 font-medium">Book</a>
+                    <a href="dashboard.html" class="nav-link text-gray-700 hover:text-indigo-600 font-medium">Dashboard</a>
+                    <a href="features.html" class="nav-link active text-indigo-600 font-medium">Features</a>
+                    <a href="contact.html" class="nav-link text-gray-700 hover:text-indigo-600 font-medium">Contact</a>
+                </div>
+
+                <div class="hidden md:flex items-center space-x-4">
+                    <a href="login.html" class="text-gray-700 hover:text-indigo-600 font-medium">Log In</a>
+                    <a href="login.html" class="gradient-bg text-white px-5 py-2 rounded-full font-medium">Get Started</a>
+                </div>
+
+                <button onclick="toggleMobileMenu()" class="md:hidden p-2 rounded-lg hover:bg-gray-100">
+                    <i data-lucide="menu" class="h-6 w-6"></i>
+                </button>
+            </div>
+        </div>
+    </nav>
+
+    <div class="pt-16 bg-gradient-to-b from-indigo-50 to-white py-16">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center mb-16">
+                <h1 class="text-4xl font-bold text-gray-900 mb-4">Smart Features</h1>
+                <p class="text-xl text-gray-600 max-w-2xl mx-auto">Discover how our intelligent scheduling system works</p>
+            </div>
+
+            <div class="space-y-24">
+                <!-- AI Conflict Detection -->
+                <div class="grid lg:grid-cols-2 gap-12 items-center">
+                    <div>
+                        <div class="inline-flex items-center px-3 py-1 rounded-full bg-indigo-100 text-indigo-800 text-sm font-semibold mb-4">AI-Powered</div>
+                        <h2 class="text-3xl font-bold text-gray-900 mb-4">AI-Based Conflict Prevention</h2>
+                        <p class="text-gray-600 text-lg mb-6">Our system analyzes your schedule patterns, travel times, and service durations to prevent conflicts before they happen.</p>
+                        <ul class="space-y-3">
+                            <li class="flex items-center gap-3 text-gray-700">
+                                <i data-lucide="check-circle" class="h-5 w-5 text-green-500"></i>
+                                Real-time conflict detection across multiple calendars
+                            </li>
+                            <li class="flex items-center gap-3 text-gray-700">
+                                <i data-lucide="check-circle" class="h-5 w-5 text-green-500"></i>
+                                Automatic travel time calculations
+                            </li>
+                        </ul>
+                    </div>
+                    <div class="bg-white rounded-2xl shadow-xl p-8 border border-gray-100">
+                        <div class="space-y-4">
+                            <div class="p-4 bg-red-50 border-l-4 border-red-500 rounded-r-lg">
+                                <div class="flex items-center gap-2 mb-2">
+                                    <i data-lucide="alert-triangle" class="h-5 w-5 text-red-500"></i>
+                                    <span class="font-semibold text-red-900">Conflict Detected!</span>
+                                </div>
+                                <p class="text-sm text-red-700">Appointment overlaps with travel time</p>
+                            </div>
+                            <div class="p-4 bg-green-50 border-l-4 border-green-500 rounded-r-lg">
+                                <div class="flex items-center gap-2 mb-2">
+                                    <i data-lucide="check-circle" class="h-5 w-5 text-green-500"></i>
+                                    <span class="font-semibold text-green-900">AI Suggestion</span>
+                                </div>
+                                <p class="text-sm text-green-700">Suggested: 2:30 PM (30 min buffer)</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Smart Buffer -->
+                <div class="grid lg:grid-cols-2 gap-12 items-center">
+                    <div class="bg-white rounded-2xl shadow-xl p-8 border border-gray-100 order-2 lg:order-1">
+                        <div class="flex items-center justify-between mb-4">
+                            <span class="text-sm font-medium text-gray-500">Schedule with Smart Buffers</span>
+                        </div>
+                        <div class="space-y-3">
+                            <div class="flex items-center gap-4 p-3 bg-gray-50 rounded-lg">
+                                <div class="w-2 h-12 bg-blue-500 rounded-full"></div>
+                                <div class="flex-1">
+                                    <p class="font-medium">Client Meeting</p>
+                                    <p class="text-xs text-gray-500">60 minutes</p>
+                                </div>
+                                <span class="text-xs text-gray-400">9:00 AM</span>
+                            </div>
+                            <div class="flex items-center gap-4 p-2 bg-indigo-50 rounded-lg border-2 border-indigo-200 border-dashed">
+                                <div class="w-2 h-12 bg-indigo-300 rounded-full"></div>
+                                <div class="flex-1">
+                                    <p class="font-medium text-indigo-900">Buffer Time</p>
+                                    <p class="text-xs text-indigo-600">15 minutes</p>
+                                </div>
+                                <i data-lucide="sparkles" class="h-4 w-4 text-indigo-500"></i>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="order-1 lg:order-2">
+                        <div class="inline-flex items-center px-3 py-1 rounded-full bg-purple-100 text-purple-800 text-sm font-semibold mb-4">Time Management</div>
+                        <h2 class="text-3xl font-bold text-gray-900 mb-4">Smart Buffer Scheduling</h2>
+                        <p class="text-gray-600 text-lg mb-6">Automatically insert buffer time between appointments based on service type and location changes.</p>
+                    </div>
+                </div>
+
+                <!-- Features Grid -->
+                <div class="grid md:grid-cols-3 gap-8">
+                    <div class="bg-white rounded-2xl p-8 shadow-lg border border-gray-100 text-center">
+                        <div class="w-16 h-16 bg-amber-100 rounded-2xl flex items-center justify-center mx-auto mb-6">
+                            <i data-lucide="qr-code" class="h-8 w-8 text-amber-600"></i>
+                        </div>
+                        <h3 class="text-xl font-semibold text-gray-900 mb-3">QR Code Check-In</h3>
+                        <p class="text-gray-600">Contactless check-in with automatic queue management.</p>
+                    </div>
+
+                    <div class="bg-white rounded-2xl p-8 shadow-lg border border-gray-100 text-center">
+                        <div class="w-16 h-16 bg-rose-100 rounded-2xl flex items-center justify-center mx-auto mb-6">
+                            <i data-lucide="gift" class="h-8 w-8 text-rose-600"></i>
+                        </div>
+                        <h3 class="text-xl font-semibold text-gray-900 mb-3">Appointment Credits</h3>
+                        <p class="text-gray-600">Reward system for loyal clients with credit points.</p>
+                    </div>
+
+                    <div class="bg-white rounded-2xl p-8 shadow-lg border border-gray-100 text-center">
+                        <div class="w-16 h-16 bg-blue-100 rounded-2xl flex items-center justify-center mx-auto mb-6">
+                            <i data-lucide="bell" class="h-8 w-8 text-blue-600"></i>
+                        </div>
+                        <h3 class="text-xl font-semibold text-gray-900 mb-3">Smart Reminders</h3>
+                        <p class="text-gray-600">AI-optimized reminders via SMS, email, and push.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <footer class="bg-gray-900 text-white py-12">
+        <div class="max-w-7xl mx-auto px-4 text-center">
+            <p class="text-gray-400">&copy; 2026 SmartSchedule Pro. All rights reserved.</p>
+        </div>
+    </footer>
+
+    <script src="js/main.js"></script>
+</body>
+</html>

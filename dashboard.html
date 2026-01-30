@@ -1,0 +1,158 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dashboard - SmartSchedule Pro</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script src="https://unpkg.com/lucide@latest"></script>
+    <link rel="stylesheet" href="css/style.css">
+</head>
+<body class="bg-gray-50 text-gray-800">
+    <nav class="fixed w-full z-50 glass-effect border-b border-gray-200">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex justify-between h-16 items-center">
+                <a href="index.html" class="flex items-center">
+                    <div class="gradient-bg p-2 rounded-lg mr-3">
+                        <i data-lucide="calendar-check" class="h-6 w-6 text-white"></i>
+                    </div>
+                    <span class="text-xl font-bold gradient-text">SmartSchedule</span>
+                </a>
+                
+                <div class="hidden md:flex space-x-8">
+                    <a href="index.html" class="nav-link text-gray-700 hover:text-indigo-600 font-medium">Home</a>
+                    <a href="services.html" class="nav-link text-gray-700 hover:text-indigo-600 font-medium">Services</a>
+                    <a href="booking.html" class="nav-link text-gray-700 hover:text-indigo-600 font-medium">Book</a>
+                    <a href="dashboard.html" class="nav-link active text-indigo-600 font-medium">Dashboard</a>
+                    <a href="features.html" class="nav-link text-gray-700 hover:text-indigo-600 font-medium">Features</a>
+                    <a href="contact.html" class="nav-link text-gray-700 hover:text-indigo-600 font-medium">Contact</a>
+                </div>
+
+                <div class="hidden md:flex items-center space-x-4">
+                    <div class="flex items-center gap-2">
+                        <img src="https://ui-avatars.com/api/?name=Pro+User&background=random" class="w-8 h-8 rounded-full">
+                        <span class="text-sm font-medium text-gray-700">Dr. Smith</span>
+                    </div>
+                    <a href="index.html" class="text-gray-500 hover:text-gray-700">
+                        <i data-lucide="log-out" class="h-5 w-5"></i>
+                    </a>
+                </div>
+
+                <button onclick="toggleMobileMenu()" class="md:hidden p-2 rounded-lg hover:bg-gray-100">
+                    <i data-lucide="menu" class="h-6 w-6"></i>
+                </button>
+            </div>
+        </div>
+    </nav>
+
+    <div class="pt-16 min-h-screen bg-gray-50">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8">
+            <div class="mb-8 flex justify-between items-center">
+                <div>
+                    <h1 class="text-3xl font-bold text-gray-900">Professional Dashboard</h1>
+                    <p class="text-gray-600 mt-1">Manage your appointments and track performance</p>
+                </div>
+                <button class="gradient-bg text-white px-6 py-2 rounded-full font-medium hover:shadow-lg transition flex items-center gap-2">
+                    <i data-lucide="plus" class="h-4 w-4"></i>
+                    Add Availability
+                </button>
+            </div>
+
+            <!-- Stats Cards -->
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6 mb-8">
+                <div class="bg-white rounded-2xl p-6 shadow-sm border border-gray-100">
+                    <div class="flex items-center justify-between mb-4">
+                        <div class="p-3 bg-indigo-100 rounded-xl">
+                            <i data-lucide="calendar" class="h-6 w-6 text-indigo-600"></i>
+                        </div>
+                        <span class="text-sm text-green-600 font-medium bg-green-50 px-2 py-1 rounded-lg">+12%</span>
+                    </div>
+                    <p class="text-2xl font-bold text-gray-900">24</p>
+                    <p class="text-sm text-gray-600">Total Bookings (This Week)</p>
+                </div>
+
+                <div class="bg-white rounded-2xl p-6 shadow-sm border border-gray-100">
+                    <div class="flex items-center justify-between mb-4">
+                        <div class="p-3 bg-purple-100 rounded-xl">
+                            <i data-lucide="clock" class="h-6 w-6 text-purple-600"></i>
+                        </div>
+                    </div>
+                    <p class="text-2xl font-bold text-gray-900">2:00 PM</p>
+                    <p class="text-sm text-gray-600">Peak Hour Today</p>
+                </div>
+
+                <div class="bg-white rounded-2xl p-6 shadow-sm border border-gray-100">
+                    <div class="flex items-center justify-between mb-4">
+                        <div class="p-3 bg-amber-100 rounded-xl">
+                            <i data-lucide="user-x" class="h-6 w-6 text-amber-600"></i>
+                        </div>
+                        <span class="text-sm text-green-600 font-medium bg-green-50 px-2 py-1 rounded-lg">-5%</span>
+                    </div>
+                    <p class="text-2xl font-bold text-gray-900">4%</p>
+                    <p class="text-sm text-gray-600">No-Show Rate</p>
+                </div>
+
+                <div class="bg-white rounded-2xl p-6 shadow-sm border border-gray-100">
+                    <div class="flex items-center justify-between mb-4">
+                        <div class="p-3 bg-green-100 rounded-xl">
+                            <i data-lucide="dollar-sign" class="h-6 w-6 text-green-600"></i>
+                        </div>
+                        <span class="text-sm text-green-600 font-medium bg-green-50 px-2 py-1 rounded-lg">+8%</span>
+                    </div>
+                    <p class="text-2xl font-bold text-gray-900">$3,240</p>
+                    <p class="text-sm text-gray-600">Revenue (This Month)</p>
+                </div>
+            </div>
+
+            <div class="grid lg:grid-cols-3 gap-8">
+                <!-- Upcoming Appointments -->
+                <div class="lg:col-span-2">
+                    <div class="bg-white rounded-2xl shadow-sm border border-gray-100 overflow-hidden">
+                        <div class="px-6 py-4 border-b border-gray-100 flex justify-between items-center">
+                            <h2 class="text-lg font-semibold text-gray-900">Upcoming Appointments</h2>
+                            <button class="text-indigo-600 text-sm font-medium hover:text-indigo-700">View All</button>
+                        </div>
+                        <div class="divide-y divide-gray-100">
+                            <div class="p-6 flex items-center gap-4 hover:bg-gray-50 transition">
+                                <div class="relative">
+                                    <img src="https://ui-avatars.com/api/?name=Alice+Smith&background=random" class="w-12 h-12 rounded-full">
+                                    <span class="absolute -bottom-1 -right-1 w-4 h-4 bg-green-500 border-2 border-white rounded-full"></span>
+                                </div>
+                                <div class="flex-1">
+                                    <div class="flex justify-between items-start">
+                                        <div>
+                                            <h3 class="font-semibold text-gray-900">Alice Smith</h3>
+                                            <p class="text-sm text-gray-600">Haircut & Styling • 45 min</p>
+                                        </div>
+                                        <span class="bg-green-100 text-green-800 text-xs font-semibold px-3 py-1 rounded-full">Checked In</span>
+                                    </div>
+                                    <div class="flex items-center gap-4 mt-2 text-sm text-gray-500">
+                                        <span class="flex items-center gap-1"><i data-lucide="clock" class="h-4 w-4"></i> 10:00 AM</span>
+                                        <span class="flex items-center gap-1"><i data-lucide="qr-code" class="h-4 w-4"></i> QR Verified</span>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="p-6 flex items-center gap-4 hover:bg-gray-50 transition">
+                                <div class="relative">
+                                    <img src="https://ui-avatars.com/api/?name=Bob+Jones&background=random" class="w-12 h-12 rounded-full">
+                                </div>
+                                <div class="flex-1">
+                                    <div class="flex justify-between items-start">
+                                        <div>
+                                            <h3 class="font-semibold text-gray-900">Bob Jones</h3>
+                                            <p class="text-sm text-gray-600">Consultation • 60 min</p>
+                                        </div>
+                                        <span class="bg-blue-100 text-blue-800 text-xs font-semibold px-3 py-1 rounded-full">Confirmed</span>
+                                    </div>
+                                    <div class="flex items-center gap-4 mt-2 text-sm text-gray-500">
+                                        <span class="flex items-center gap-1"><i data-lucide="clock" class="h-4 w-4"></i> 11:30 AM</span>
+                                        <span class="flex items-center gap-1"><i data-lucide="video" class="h-4 w-4"></i> Video Call</span>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="p-6 flex items-center gap-4 hover:bg-gray-50 transition bg-red-50">
+                                <div class="relative">
+                                    <img src="https://ui-avatars.com/api/?name=Carol+White&background=random" class="w-12 h-12 rounded-full opacity-50">
+                                </div

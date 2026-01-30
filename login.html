@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Login - SmartSchedule Pro</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script src="https://unpkg.com/lucide@latest"></script>
+    <link rel="stylesheet" href="css/style.css">
+</head>
+<body class="bg-gray-50 text-gray-800 min-h-screen flex items-center justify-center py-12 px-4 sm:px-6 lg:px-8">
+    <div class="max-w-md w-full space-y-8 bg-white rounded-3xl shadow-xl p-8 border border-gray-100">
+        <div class="text-center">
+            <div class="gradient-bg w-16 h-16 rounded-2xl flex items-center justify-center mx-auto mb-4">
+                <i data-lucide="calendar-check" class="h-8 w-8 text-white"></i>
+            </div>
+            <h2 class="text-3xl font-bold text-gray-900" id="authTitle">Welcome back</h2>
+            <p class="mt-2 text-gray-600" id="authSubtitle">Sign in to your account</p>
+        </div>
+
+        <!-- Role Toggle -->
+        <div class="flex p-1 bg-gray-100 rounded-xl">
+            <button onclick="switchRole('customer')" id="customer-tab" class="auth-tab active flex-1 py-2 px-4 rounded-lg text-sm font-medium transition-all flex items-center justify-center gap-2">
+                <i data-lucide="user" class="h-4 w-4"></i>
+                Customer
+            </button>
+            <button onclick="switchRole('professional')" id="professional-tab" class="auth-tab flex-1 py-2 px-4 rounded-lg text-sm font-medium transition-all text-gray-600 hover:text-gray-900 flex items-center justify-center gap-2">
+                <i data-lucide="briefcase" class="h-4 w-4"></i>
+                Professional
+            </button>
+        </div>
+
+        <form class="mt-8 space-y-6" id="authForm" onsubmit="handleAuth(event)">
+            <div class="rounded-md shadow-sm space-y-4">
+                <!-- Full Name (Registration only) -->
+                <div id="nameField" class="hidden">
+                    <label class="block text-sm font-medium text-gray-700 mb-2">Full Name</label>
+                    <input type="text" id="fullName" class="w-full px-4 py-3 rounded-xl border border-gray-300 focus:ring-2 focus:ring-indigo-500 focus:border-indigo-500" placeholder="John Doe">
+                </div>
+
+                <!-- Business Name (Professional only) -->
+                <div id="businessField" class="hidden">
+                    <label class="block text-sm font-medium text-gray-700 mb-2">Business/Company Name</label>
+                    <input type="text" id="businessName" class="w-full px-4 py-3 rounded-xl border border-gray-300 focus:ring-2 focus:ring-indigo-500 focus:border-indigo-500" placeholder="Your Business Name">
+                </div>
+
+                <!-- Service Category (Professional only) -->
+                <div id="serviceField" class="hidden">
+                    <label class="block text-sm font-medium text-gray-700 mb-2">Service Category</label>
+                    <select id="serviceCategory" class="w-full px-4 py-3 rounded-xl border border-gray-300 focus:ring-2 focus:ring-indigo-500 focus:border-indigo-500">
+                        <option value="">Select your service type...</option>
+                        <option value="healthcare">Healthcare & Medical</option>
+                        <option value="beauty">Beauty & Wellness</option>
+                        <option value="consulting">Consulting & Coaching</option>
+                        <option value="repair">Repair & Technical</option>
+                        <option value="fitness">Fitness & Training</option>
+                        <option value="other">Other Professional Service</option>
+                    </select>
+                </div>
+
+                <div>
+                    <label class="block text-sm font-medium text-gray-700 mb-2">Email address</label>
+                    <input type="email" id="email" required class="w-full px-4 py-3 rounded-xl border border-gray-300 focus:ring-2 focus:ring-indigo-500 focus:border-indigo-500" placeholder="you@example.com">
+                </div>
+                <div>
+                    <label class="block text-sm font-medium text-gray-700 mb-2">Password</label>
+                    <input type="password" id="password" required class="w-full px-4 py-3 rounded-xl border border-gray-300 focus:ring-2 focus:ring-indigo-500 focus:border-indigo-500" placeholder="••••••••">
+                </div>
+
+                <!-- Confirm Password -->
+                <div id="confirmPasswordField" class="hidden">
+                    <label class="block text-sm font-medium text-gray-700 mb-2">Confirm Password</label>
+                    <input type="password" id="confirmPassword" class="w-full px-4 py-3 rounded-xl border border-gray-300 focus:ring-2 focus:ring-indigo-500 focus:border-indigo-500" placeholder="••••••••">
+                </div>
+            </div>
+
+            <div class="flex items-center justify-between" id="loginExtras">
+                <div class="flex items-center">
+                    <input type="checkbox" class="h-4 w-4 text-indigo-600 border-gray-300 rounded">
+                    <label class="ml-2 block text-sm text-gray-900">Remember me</label>
+                </div>
+                <a href="#" class="text-sm font-medium text-indigo-600 hover:text-indigo-500">Forgot password?</a>
+            </div>
+
+            <button type="submit" id="submitBtn" class="w-full gradient-bg text-white py-3 rounded-xl font-semibold hover:shadow-lg transition transform hover:-translate-y-0.5">
+                Sign in
+            </button>
+        </form>
+
+        <div class="mt-6">
+            <div class="relative">
+                <div class="absolute inset-0 flex items-center">
+                    <div class="w-full border-t border-gray-200"></div>
+                </div>
+                <div class="relative flex justify-center text-sm">
+                    <span class="px-2 bg-white text-gray-500" id="toggleText">Don't have an account?</span>
+                </div>
+            </div>
+
+            <button onclick="toggleAuthMode()" id="toggleBtn" class="mt-6 w-full flex justify-center py-3 px-4 border-2 border-indigo-600 text-sm font-medium rounded-xl text-indigo-600 bg-transparent hover:bg-indigo-50 transition">
+                Create new account
+            </button>
+        </div>
+    </div>
+
+    <script src="js/main.js"></script>
+</body>
+</html>
